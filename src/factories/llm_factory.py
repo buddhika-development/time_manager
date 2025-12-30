@@ -10,6 +10,9 @@ class LLMFactory:
 
     @classmethod
     def create(cls, llm_type:str, **kwargs):
-        if llm_type not in cls._connections:
+        if llm_type.lower() not in cls._connections:
             raise ValueError(f"Invalid LLM type: {llm_type}")
-        return cls._connections[llm_type](**kwargs)
+
+        llm = cls._connections[llm_type.lower()](**kwargs)
+        llm.connect()
+        return llm
