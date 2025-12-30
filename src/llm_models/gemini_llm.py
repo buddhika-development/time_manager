@@ -18,3 +18,6 @@ class GEMINIConnection(LLMConnection):
     
     def invoke(self, message):
         return self.llm.invoke(message)
+
+    def stream(self, message):
+        return self.llm.stream(message)
