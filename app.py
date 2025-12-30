@@ -1,3 +1,7 @@
-import streamlit as st
+from src.factories.llm_factory import LLMFactory
 
-st.title("Welcome")
+input = "hello"
+
+llm = LLMFactory.create("mistral")
+
+print(llm.invoke(input).content)
