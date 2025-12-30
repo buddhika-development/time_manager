@@ -38,6 +38,7 @@ def main():
                         message_placeholder.write(full_response)
                     else:
                         full_response = str(chunk)
+            st.session_state.message_history.append({"role": "assistant", "content": full_response})
 
 if __name__ == "__main__":
     main()
